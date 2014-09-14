@@ -1,4 +1,4 @@
-package typeclasses
+package dayzero
 
 import org.scalatest.{Matchers, FlatSpec}
 import ToCanIsTruthyOps._

@@ -1,4 +1,4 @@
-package typeclasses
+package dayzero
 
 // See
 // http://eed3si9n.com/learning-scalaz/a+Yes-No+typeclass.html
