@@ -7,7 +7,10 @@ Day 2: http://eed3si9n.com/learning-scalaz/Functor.html
 
 This is interesting. Basically map gives us a way to compose functions,
 except the order is in reverse from f compose g.
- */
+
+Mathematical definition of function composition:   (f ∘ g)(x) = f(g(x))
+
+  */
 val f: Int => Int = _ + 1
 val g: Int => Int = _ * 2
 
@@ -32,6 +35,7 @@ ghci> (*3) `fmap` (+100) $ 1
 // Since map here’s an injected method of F[A], the data structure to be mapped over comes first,
 // then the function comes next.
 (((_: Int) * 3) map {_ + 100}) (1) // 103
+(((_: Int) * 3) ∘ {_ + 100}) (1) // 103
 
 // Are we going to miss out on this lifting goodness?
 // There are several neat functions under Functor typeclass. One of them is called lift:
