@@ -39,4 +39,4 @@ My favourites from this collection are
 * <http://hseeberger.github.io/blog/2013/05/31/implicits-unchained-type-safe-equality-part2/>
 * <http://hseeberger.github.io/blog/2013/06/01/implicits-unchained-type-safe-equality-part3/>
 * [Scala Implicits : Type Classes Here I Come by Debasish Ghosh](http://debasishg.blogspot.co.at/2010/06/scala-implicits-type-classes-here-i.html)
-
+* [Explanation of Type Lambdas by Earl Douglas](https://github.com/earldouglas/scala-scratchpad/tree/master/type-lambdas)
