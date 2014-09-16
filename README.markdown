@@ -1,6 +1,6 @@
 # Learning Scalaz
 
-This is _me_ learning Scalaz using Eugene Yokota's (@eed3si9n) excellent [blog](http://eed3si9n.com/learning-scalaz/) as a guide. This repo is my playground for learning Scalaz (a somewhat messy collection of examples in form of Scala Worksheets, Modules and Tests). 
+This is _me_ learning Scalaz using Eugene Yokota's ([@eed3si9n](https://github.com/eed3si9n)) excellent [blog](http://eed3si9n.com/learning-scalaz/) as a guide. This repo is my playground for learning Scalaz (a somewhat messy collection of examples in form of Scala Worksheets, Modules and Tests). 
 
 ## Resources
 
@@ -13,7 +13,7 @@ This is _me_ learning Scalaz using Eugene Yokota's (@eed3si9n) excellent [blog](
 
 * __[Learning Scalaz by Eugene Yokota](http://eed3si9n.com/learning-scalaz/)__
 
-#### Towards Scalaz by Adelbert Chang (@adelbertchang)
+#### Towards Scalaz by Adelbert Chang
 
 * [Towards Scalaz (part 1)](http://typelevel.org/blog/2013/10/13/towards-scalaz-1.html)
 * [Towards Scalaz (part 2)](http://typelevel.org/blog/2013/12/15/towards-scalaz-2.html)
