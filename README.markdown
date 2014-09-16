@@ -1,6 +1,6 @@
 # Learning Scalaz
 
-This is _me_ learning Scalaz using Eugene Yokota's (@eed3si9n) excellent [blog](http://eed3si9n.com/learning-scalaz/) as a guide. This repo my playground for learning Scalaz (a somewhat messy collection of examples in form of Scala Worksheets, Modules and Tests). 
+This is _me_ learning Scalaz using Eugene Yokota's (@eed3si9n) excellent [blog](http://eed3si9n.com/learning-scalaz/) as a guide. This repo is my playground for learning Scalaz (a somewhat messy collection of examples in form of Scala Worksheets, Modules and Tests). 
 
 ## Resources
 
