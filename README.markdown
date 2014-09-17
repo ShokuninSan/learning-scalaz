@@ -29,7 +29,7 @@ My favourites from this collection are
 * [Applicatives are generalized functors by Heiko Seeberger](http://hseeberger.wordpress.com/2011/01/31/applicatives-are-generalized-functors/)
 
 
-### _On Type Classes and Implicits_
+### _On Types and Implicits_
 
 * [High wizardry in the land of Scala by Daniel Spiewak](http://vimeo.com/28793245) [video]
 * <http://blogs.atlassian.com/2013/09/scala-types-of-a-higher-kind/>
@@ -40,3 +40,4 @@ My favourites from this collection are
 * <http://hseeberger.github.io/blog/2013/06/01/implicits-unchained-type-safe-equality-part3/>
 * [Scala Implicits : Type Classes Here I Come by Debasish Ghosh](http://debasishg.blogspot.co.at/2010/06/scala-implicits-type-classes-here-i.html)
 * [Explanation of Type Lambdas by Earl Douglas](https://github.com/earldouglas/scala-scratchpad/tree/master/type-lambdas)
+* [Unboxed new (_Tagged_) types within Scalaz 7 by Tim Perret](http://timperrett.com/2012/06/15/unboxed-new-types-within-scalaz7/)
