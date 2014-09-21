@@ -41,3 +41,4 @@ My favourites from this collection are
 * [Scala Implicits : Type Classes Here I Come by Debasish Ghosh](http://debasishg.blogspot.co.at/2010/06/scala-implicits-type-classes-here-i.html)
 * [Explanation of Type Lambdas by Earl Douglas](https://github.com/earldouglas/scala-scratchpad/tree/master/type-lambdas)
 * [Unboxed new (_Tagged_) types within Scalaz 7 by Tim Perret](http://timperrett.com/2012/06/15/unboxed-new-types-within-scalaz7/)
+* [SO: Abstract Types vs. Generics](http://stackoverflow.com/questions/1154571/scala-abstract-types-vs-generics)
