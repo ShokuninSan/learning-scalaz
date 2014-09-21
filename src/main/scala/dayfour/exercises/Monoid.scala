@@ -52,7 +52,7 @@ trait MonoidOps[A] {
 
 object MonoidOps {
 
-  implicit def intMonoidOps[T](v: T)(implicit ev: Monoid[T]) = new MonoidOps[T] {
+  implicit def toMonoidOps[T](v: T)(implicit ev: Monoid[T]) = new MonoidOps[T] {
     val self = v
     implicit def F = ev
   }
