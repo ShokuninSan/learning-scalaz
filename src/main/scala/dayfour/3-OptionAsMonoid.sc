@@ -43,8 +43,8 @@ val nonMonoid = new NonMonoid {
   def foo = ()
 }
 
-// This wouldn't compile, since NonMonoid has no |+|:
-// (none: Option[NonMonoid]) |+| nonMonoid.some
+// This does not work, since NonMonoid has no |+|:
+(none: Option[NonMonoid]) |+| nonMonoid.some
 
 // Therefore we can do use [Tags.First]
 Tags.First(none: Option[NonMonoid]) |+| Tags.First(nonMonoid.some) // returns the right value
