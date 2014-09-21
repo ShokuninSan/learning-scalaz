@@ -25,21 +25,28 @@ object MonoidInstances {
   }
 
   /** Exercise 10.1: Give Monoid instances for integer addition and multiplication as well as the Boolean operators. */
-//  val intAddition: Monoid[Int] = ???
-//
-//  val intMultiplication: Monoid[Int] = ???
-//
-//  val booleanOr: Monoid[Boolean] = ???
-//
-//  val booleanAnd: Monoid[Boolean] = ???
+  implicit def intMultiMonoid: Monoid[Int] = new Monoid[Int] {
+    def op(a1: Int, a2: => Int): Int = a1 * a2
+    def zero: Int = 1
+  }
+
+  implicit def booleanOrMonoid: Monoid[Boolean] = new Monoid[Boolean] {
+    def op(a1: Boolean, a2: => Boolean): Boolean = a1 || a2
+    def zero: Boolean = false
+  }
+
+  implicit def booleanAndMonoid: Monoid[Boolean] = new Monoid[Boolean] {
+    def op(a1: Boolean, a2: => Boolean): Boolean = a1 && a2
+    def zero: Boolean = true
+  }
 
   /** Exercise 10.2: Give a Monoid instance for combining Option values */
-//  def optionMonoid[A]: Monoid[Option[A]] = ???
+  def optionMonoid[A]: Monoid[Option[A]] = ???
 
   /** Exercise 10.3: A function having the same argument and return type is sometimes called an 'endofunction'. Write a
     * Monoid for endofunctions.
     */
-//  def endoMonoid[A]: Monoid[A => A] = ???
+  def endoMonoid[A]: Monoid[A => A] = ???
 
 }
 
