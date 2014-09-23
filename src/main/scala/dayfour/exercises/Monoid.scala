@@ -59,7 +59,10 @@ object MonoidInstances {
   /** Exercise 10.3: A function having the same argument and return type is sometimes called an 'endofunction'. Write a
     * Monoid for endofunctions.
     */
-  def endoMonoid[A]: Monoid[A => A] = ???
+  implicit def endoMonoid[A]: Monoid[A => A] = new Monoid[A => A] {
+    def op(a1: (A) => A, a2: => (A) => A): (A) => A = b => a2(a1(b))
+    def zero: (A) => A = b => b
+  }
 
 }
 

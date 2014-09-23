@@ -49,4 +49,11 @@ class MonoidExercisesSpec extends FlatSpec with Matchers {
     ((Some(1): Option[Int]) |+| Some(2)) should be === Some(3)
   }
 
+  "endoMonoid" should "combine two endofunctions" in {
+    import MonoidInstances.endoMonoid
+    (((_:Int) * 2) |+| ((_:Int) + 1))(1) should be === 3
+    (((a:Int) => a) |+| Monoid[Int => Int].zero)(42) should be === 42
+    (Monoid[Int => Int].zero |+| ((a:Int) => a))(42) should be === 42
+  }
+
 }
