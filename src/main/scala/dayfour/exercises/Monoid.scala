@@ -14,6 +14,11 @@ object Monoid {
 
 object MonoidInstances {
 
+  implicit val stringMonoid = new Monoid[String] {
+    def op(a1: String, a2: => String): String = a1 + a2
+    def zero: String = ""
+  }
+
   implicit val intAdditionMonoid = new Monoid[Int] {
     def op(a1: Int, a2: => Int): Int = a1 + a2
     def zero: Int = 0
@@ -41,7 +46,15 @@ object MonoidInstances {
   }
 
   /** Exercise 10.2: Give a Monoid instance for combining Option values */
-  def optionMonoid[A]: Monoid[Option[A]] = ???
+  implicit def optionMonoid[A:Monoid]: Monoid[Option[A]] = new Monoid[Option[A]] {
+    def op(a1: Option[A], a2: => Option[A]): Option[A] = (a1, a2) match {
+      case (Some(a), Some(b)) => Some(implicitly[Monoid[A]].op(a, b))
+      case (Some(a), None) => a1
+      case (None, Some(a)) => a2
+      case _ => None
+    }
+    def zero: Option[A] = None
+  }
 
   /** Exercise 10.3: A function having the same argument and return type is sometimes called an 'endofunction'. Write a
     * Monoid for endofunctions.
