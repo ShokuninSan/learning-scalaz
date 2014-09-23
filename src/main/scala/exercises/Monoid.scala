@@ -1,4 +1,4 @@
-package dayfour.exercises
+package exercises
 
 trait Monoid[A] { self =>
   def op(a1: A, a2: => A): A
@@ -6,10 +6,23 @@ trait Monoid[A] { self =>
 }
 
 object Monoid {
-
   def apply[A](implicit ev: Monoid[A]) = ev
   def zero[A](implicit F: Monoid[A]) = F.zero
+}
 
+
+trait MonoidOps[A] {
+  val self: A
+  implicit def F: Monoid[A]
+  def |+|(a: A): A = F.op(self, a)
+  def zero = F.zero
+}
+
+object MonoidOps {
+  implicit def toMonoidOps[T](v: T)(implicit ev: Monoid[T]) = new MonoidOps[T] {
+    val self = v
+    implicit def F = ev
+  }
 }
 
 object MonoidInstances {
@@ -62,22 +75,6 @@ object MonoidInstances {
   implicit def endoMonoid[A]: Monoid[A => A] = new Monoid[A => A] {
     def op(a1: (A) => A, a2: => (A) => A): (A) => A = b => a2(a1(b))
     def zero: (A) => A = b => b
-  }
-
-}
-
-trait MonoidOps[A] {
-  val self: A
-  implicit def F: Monoid[A]
-  def |+|(a: A): A = F.op(self, a)
-  def zero = F.zero
-}
-
-object MonoidOps {
-
-  implicit def toMonoidOps[T](v: T)(implicit ev: Monoid[T]) = new MonoidOps[T] {
-    val self = v
-    implicit def F = ev
   }
 
 }

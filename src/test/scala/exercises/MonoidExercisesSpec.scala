@@ -1,4 +1,4 @@
-package dayfour.exercises
+package exercises
 
 import org.scalatest.{FlatSpec, Matchers}
 import MonoidOps._
