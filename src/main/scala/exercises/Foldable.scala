@@ -30,6 +30,19 @@ object Foldable {
     override def foldLeft[A, B](as: List[A])(z: B)(f: (B, A) => B): B = as.foldLeft(z)(f)
     override def foldMap[A, B](as: List[A])(f: (A) => B)(implicit mb: Monoid[B]): B = as.foldLeft(mb.zero)((b,a) => mb.op(f(a),b))
   }
+
+  implicit def indexedSeqFoldable[A]: Foldable[IndexedSeq] = new Foldable[IndexedSeq] {
+    override def foldRight[A, B](as: IndexedSeq[A])(z: B)(f: (A, B) => B): B = as.foldRight(z)(f)
+    override def foldLeft[A, B](as: IndexedSeq[A])(z: B)(f: (B, A) => B): B = as.foldLeft(z)(f)
+    override def foldMap[A, B](as: IndexedSeq[A])(f: (A) => B)(implicit mb: Monoid[B]): B = as.foldLeft(mb.zero)((b,a) => mb.op(f(a),b))
+  }
+
+  implicit def streamFoldable[A]: Foldable[Stream] = new Foldable[Stream] {
+    override def foldRight[A, B](as: Stream[A])(z: B)(f: (A, B) => B): B = as.foldRight(z)(f)
+    override def foldLeft[A, B](as: Stream[A])(z: B)(f: (B, A) => B): B = as.foldLeft(z)(f)
+    override def foldMap[A, B](as: Stream[A])(f: (A) => B)(implicit mb: Monoid[B]): B = as.foldLeft(mb.zero)((b,a) => mb.op(f(a),b))
+  }
+  
 }
 
 /** The implementations below are generic "extensions" to be used for arbitrary
