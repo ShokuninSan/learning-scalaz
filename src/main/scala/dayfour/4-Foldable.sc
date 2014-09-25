@@ -2,7 +2,7 @@ import scalaz._
 import Scalaz._
 
 /**
-  Foldable
+  Foldable (see also [[exercises.Foldable]])
 
   LSZ: http://eed3si9n.com/learning-scalaz/Foldable.html
 
