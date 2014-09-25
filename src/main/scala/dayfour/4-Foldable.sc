@@ -40,3 +40,4 @@ import Scalaz._
  */
 
 List(1,2,3) foldMap {identity} // 6
+List("1", "2", "3") foldMap {_.toInt} // 6

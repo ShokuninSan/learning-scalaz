@@ -42,7 +42,19 @@ object Foldable {
     override def foldLeft[A, B](as: Stream[A])(z: B)(f: (B, A) => B): B = as.foldLeft(z)(f)
     override def foldMap[A, B](as: Stream[A])(f: (A) => B)(implicit mb: Monoid[B]): B = as.foldLeft(mb.zero)((b,a) => mb.op(f(a),b))
   }
-  
+
+  implicit def treeFoldable[A, B]: Foldable[Tree] = new Foldable[Tree] {
+    override def foldRight[A, B](as: Tree[A])(z: B)(f: (A, B) => B): B = as match {
+      case Leaf(a) => f(a, z)
+      case Branch(left, right) => foldRight(right)(foldRight(left)(z)(f))(f)
+    }
+    override def foldLeft[A, B](as: Tree[A])(z: B)(f: (B, A) => B): B = as match {
+      case Leaf(a) => f(z, a)
+      case Branch(left, right) => foldLeft(left)(foldLeft(right)(z)(f))(f)
+    }
+    override def foldMap[A, B](as: Tree[A])(f: (A) => B)(implicit mb: Monoid[B]): B = foldLeft(as)(mb.zero)((b: B,a: A) => mb.op(f(a),b))
+  }
+
 }
 
 /** The implementations below are generic "extensions" to be used for arbitrary
@@ -61,6 +73,8 @@ trait FoldableOps[F[_],A] {
   val self: F[A]
   implicit def F: Foldable[F]
   def foldMap[B](f: A => B)(implicit ev: Monoid[B]): B = F.foldMap(self)(f)
+  def foldRight[B](z: B)(f: (A,B) => B): B = F.foldRight(self)(z)(f)
+  def foldLeft[B](z: B)(f: (B, A) => B): B = F.foldLeft(self)(z)(f)
   def concatenate(implicit ev: Monoid[A]): A = F.concatenate(self)(ev)
 }
 
