@@ -9,7 +9,11 @@ import Scalaz._
   LSZ: http://eed3si9n.com/learning-scalaz/Applicative.html
   LYAHFGG: http://learnyouahaskell.com/functors-applicative-functors-and-monoids#applicative-functors
 
-  You can think of <*> as a sort of a beefed-up fmap. Whereas fmap takes a function and a functor and applies the function inside the functor value, <*> takes a functor that has a function in it and another functor and extracts that function from the first functor and then maps it over the second one.
+  You can think of <*> as a sort of a beefed-up fmap. Whereas fmap takes a
+  function and a functor and applies the function inside the functor value, <*>
+  takes a functor that has a function in it and another functor and extracts
+  that function from the first functor and then maps it over the second one.
+
   */
 // 'map' just maps a function like _ + 3 over a functor, e.g Some(9):
 Some(9) map {(_:Int) + 3} // Some(12)
