@@ -121,9 +121,7 @@ stackManip3(List(5,8,2,1)) === (List(8,2,1), 5)
 
 // Push can be improved in terms of modify ------------------------------------
 
-def push4(a: Int): State[Stack, Unit] = for {
-  _ <- modify { xs: Stack => a :: xs }
-} yield ()
+def push4(a: Int): State[Stack, Unit] = modify { xs: Stack => a :: xs }
 
 def stackManip4: State[Stack, Int] = for {
   _ <- push4(3)
